@@ -43,18 +43,55 @@ namespace FinalProject.Controllers
             }
 
         }
-        
-        [HttpPut("{id}")]
-        
-
-        
         [HttpPost]
-        
+        public IActionResult PostHobbies(Hobby hobby)
+        {
+            _context.Hobby.Add(hobby);
+            _context.SaveChanges();
+            return Ok();
+        }
 
-      
         [HttpDelete("{id}")]
-        
+        public IActionResult DeleteHobby(int id)
+        {
+            Hobby hobby = _context.Hobby.Find(id);
+            if (hobby == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                try
+                {
+                    _context.Hobby.Remove(hobby);
+                    _context.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    return NotFound();
+                }
+                return Ok();
+            }
+        }
 
-       
+        [HttpPut]
+        public IActionResult PutHobby (Hobby hobby)
+        {
+            try
+            {
+                _context.Entry(hobby).State = EntityState.Modified;
+                _context.SaveChanges();
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return NotFound();
+            }
+        }
+
+
+
+
+
     }
 }
