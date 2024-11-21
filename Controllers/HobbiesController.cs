@@ -28,9 +28,37 @@ namespace FinalProject.Controllers
             return Ok(_context.Hobby.ToList());
         }
 
-        // GET: api/Hobbies/5
-        [HttpGet("{id}")]
-        public IActionResult GetHobbies(int id)
+        //COMMIT THIS ON THURSDAY
+        [HttpGet("{id?}")]
+        public IActionResult GetHobbies(int? id)
+        {
+            Hobby hobby = _context.Hobby.Find(id);
+            if ( hobby == null || id == 0)// If id is either a 0 or if id doesn't exists in the database
+            {
+                // Return the first five results
+                var firstFiveHobbies = _context.Hobby
+                    .Take(5)
+                    .ToList();
+                return Ok(firstFiveHobbies);
+
+            }
+            else
+            {
+
+                return Ok(hobby);
+                
+            }
+        }
+        [HttpPost]
+        public IActionResult PostHobbies(Hobby hobby)
+        {
+            _context.Hobby.Add(hobby);
+            _context.SaveChanges();
+            return Ok();
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult DeleteHobby(int id)
         {
             Hobby hobby = _context.Hobby.Find(id);
             if (hobby == null)
@@ -39,9 +67,37 @@ namespace FinalProject.Controllers
             }
             else
             {
-                return Ok(hobby);
+                try
+                {
+                    _context.Hobby.Remove(hobby);
+                    _context.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    return NotFound();
+                }
+                return Ok();
             }
-
         }
+
+        [HttpPut]
+        public IActionResult PutHobby (Hobby hobby)
+        {
+            try
+            {
+                _context.Entry(hobby).State = EntityState.Modified;
+                _context.SaveChanges();
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return NotFound();
+            }
+        }
+
+
+
+
+
     }
 }
