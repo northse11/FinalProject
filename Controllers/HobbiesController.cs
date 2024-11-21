@@ -32,36 +32,22 @@ namespace FinalProject.Controllers
         [HttpGet("{id?}")]
         public IActionResult GetHobbies(int? id)
         {
-            if (!id.HasValue || id == 0)// If id is either a 0 or is null
+            Hobby hobby = _context.Hobby.Find(id);
+            if ( hobby == null || id == 0)// If id is either a 0 or is null
             {
                 // Return the first five results
                 var firstFiveHobbies = _context.Hobby
                     .Take(5)
                     .ToList();
+                return Ok(firstFiveHobbies);
 
-                if (firstFiveHobbies.Any()) // If there are element(s) in the firstFiveHobbies collection then...
-                {
-                    return Ok(firstFiveHobbies); //return the collection.
-                }
-                else
-                {
-                    return NotFound("No hobbies found in the database.");
-                }
             }
             else
             {
-                Hobby hobby = _context.Hobby.Find(id);
-                if (hobby == null)
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    return Ok(hobby);
-                }
-            }
-            
 
+                return Ok(hobby);
+                
+            }
         }
         [HttpPost]
         public IActionResult PostHobbies(Hobby hobby)
