@@ -36,7 +36,6 @@ namespace FinalProject.Controllers
             {
                 // Return the first five results
                 var firstFiveHobbies = _context.Hobby
-                    .OrderBy(h => h.HobbyID)
                     .Take(5)
                     .ToList();
 
