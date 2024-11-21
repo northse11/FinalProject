@@ -27,13 +27,14 @@ namespace FinalProject.Controllers
             return Ok(_context.TeamMember.ToList());
         }
 
-        [HttpGet("{id}")]
-        public IActionResult GetMember(int id)
+        [HttpGet("{id?}")]
+        public IActionResult GetMember(int? id)
         {
             TeamMember member = _context.TeamMember.Find(id);
-            if (member == null)
+            if(id == 0 || member == null)
             {
-                return NotFound();
+                var results = _context.TeamMember.Take(5).ToList();
+                return Ok(results);
             }
             else
             {

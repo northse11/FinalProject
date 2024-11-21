@@ -2,7 +2,7 @@
 {
     public class TeamMember
     {
-        public int ID { get; set; }
+        public int? ID { get; set; }
         public string FirstName {  get; set; }
         public string LastName { get; set; }
         public DateTime Birthdate { get; set; }
@@ -11,7 +11,7 @@
 
         public TeamMember() { }
 
-        public TeamMember(int id, string firstname, string lastname, DateTime birthdate, string program, string year)
+        public TeamMember(int? id, string firstname, string lastname, DateTime birthdate, string program, string year)
         {
             ID = id;
             FirstName = firstname;

@@ -43,18 +43,5 @@ namespace FinalProject.Controllers
             }
 
         }
-        
-        [HttpPut("{id}")]
-        
-
-        
-        [HttpPost]
-        
-
-      
-        [HttpDelete("{id}")]
-        
-
-       
     }
 }
