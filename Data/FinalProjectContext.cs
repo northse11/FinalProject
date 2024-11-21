@@ -13,6 +13,7 @@ namespace FinalProject.Data
             : base(options)
         {
         }
+       
 
 
         public DbSet<FinalProject.Models.TeamMember> TeamMember { get; set; } = default!;
