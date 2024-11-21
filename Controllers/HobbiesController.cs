@@ -33,7 +33,7 @@ namespace FinalProject.Controllers
         public IActionResult GetHobbies(int? id)
         {
             Hobby hobby = _context.Hobby.Find(id);
-            if ( hobby == null || id == 0)// If id is either a 0 or is null
+            if ( hobby == null || id == 0)// If id is either a 0 or if id doesn't exists in the database
             {
                 // Return the first five results
                 var firstFiveHobbies = _context.Hobby
