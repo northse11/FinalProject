@@ -31,7 +31,7 @@ namespace FinalProject.Controllers
         public IActionResult GetMember(int? id)
         {
             TeamMember member = _context.TeamMember.Find(id);
-            if(id == 0 || member == null)
+            if (id == 0 || member == null)
             {
                 var results = _context.TeamMember.Take(5).ToList();
                 return Ok(results);
@@ -86,6 +86,22 @@ namespace FinalProject.Controllers
                 return NotFound();
             }
         }
+
+        [HttpGet("{id}/favoritesongs")]
+        public IActionResult GetMemberFavoriteSongs(int id)
+        {
+            var favoriteSongs = _context.FavoriteSong
+                .Where(fs => fs.TeamMemberID == id)
+                .ToList();
+
+            if (!favoriteSongs.Any())
+            {
+                return NotFound("No favorite songs found for the specified team member.");
+            }
+
+            return Ok(favoriteSongs);
+        }
+
 
     }
 }

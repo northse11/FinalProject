@@ -9,7 +9,7 @@ namespace FinalProject.Data
 {
     public class FinalProjectContext : DbContext
     {
-        public FinalProjectContext (DbContextOptions<FinalProjectContext> options)
+        public FinalProjectContext(DbContextOptions<FinalProjectContext> options)
             : base(options)
         {
         }
@@ -18,15 +18,22 @@ namespace FinalProject.Data
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<TeamMember>().HasData(
-                new TeamMember { ID = 1, FirstName = "Steve", LastName = "North", Birthdate = new DateTime(2015, 12, 31), Program = "software", Year = "junior" });
+                new TeamMember { ID = 1, FirstName = "Steve", LastName = "North", Birthdate = new DateTime(2015, 12, 31), Program = "software", Year = "junior" }
+                );
 
             modelBuilder.Entity<Hobby>().HasData(
-                new Hobby { HobbyID = 1, HobbyName = "Hobby", HobbyDescription = "Hobby....", HobbyAge = new DateTime(2015, 12, 31), HobbyActive = true, HobbyDifficulty = "Medium"}
+                new Hobby { HobbyID = 1, HobbyName = "Hobby", HobbyDescription = "Hobby....", HobbyAge = new DateTime(2015, 12, 31), HobbyActive = true, HobbyDifficulty = "Medium" }
                 );
+
+            modelBuilder.Entity<FavoriteSong>().HasData(
+                new FavoriteSong { FavoriteSongID = 1, TeamMemberID = 1, SongName = "Bohemian Rhapsody", Artist = "Queen" }
+    );
         }
 
 
         public DbSet<FinalProject.Models.TeamMember> TeamMember { get; set; } = default!;
         public DbSet<FinalProject.Models.Hobby> Hobby { get; set; } = default!;
+        public DbSet<FavoriteSong> FavoriteSong { get; set; } = default!;
+
     }
 }
