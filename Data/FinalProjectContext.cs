@@ -18,7 +18,11 @@ namespace FinalProject.Data
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<TeamMember>().HasData(
-                new TeamMember { ID = 1, FirstName = "Steve", LastName = "North", Birthdate = new DateTime(2015, 12, 31), Program = "software", Year = "junior" }
+                new TeamMember { ID = 1, FirstName = "Steve", LastName = "North", Birthdate = new DateTime(2004, 08, 11), Program = "Software", Year = "junior" },
+                new TeamMember { ID = 2, FirstName = "Jack", LastName = "Cooper", Birthdate = new DateTime(2015, 12, 31), Program = "test", Year = "test" },
+                new TeamMember { ID = 3, FirstName = "Isan", LastName = "Kalhan", Birthdate = new DateTime(2015, 12, 31), Program = "test", Year = "test" },
+                new TeamMember { ID = 4, FirstName = "Earl", LastName = "Schreck", Birthdate = new DateTime(2015, 12, 31), Program = "test", Year = "test" },
+                new TeamMember { ID = 5, FirstName = "Jon", LastName = "Soriano Sanjuan", Birthdate = new DateTime(2015, 12, 31), Program = "test", Year = "test" }
                 );
 
             modelBuilder.Entity<Hobby>().HasData(
