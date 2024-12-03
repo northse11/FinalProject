@@ -27,13 +27,17 @@ namespace FinalProject.Data
 
             modelBuilder.Entity<FavoriteSong>().HasData(
                 new FavoriteSong { FavoriteSongID = 1, TeamMemberID = 1, SongName = "Bohemian Rhapsody", Artist = "Queen" }
-    );
+                );
+            modelBuilder.Entity<FavoriteMovie>().HasData(
+                new FavoriteMovie { ID = 1, Title = "Inception", Director = "Christopher Nolan", ReleaseDate = new DateTime(2010, 7, 16), Genre = "Sci-Fi", Rating = 8.8 }
+                );
         }
 
 
         public DbSet<FinalProject.Models.TeamMember> TeamMember { get; set; } = default!;
         public DbSet<FinalProject.Models.Hobby> Hobby { get; set; } = default!;
         public DbSet<FavoriteSong> FavoriteSong { get; set; } = default!;
+        public DbSet<FavoriteMovie> FavoriteMovie { get; set; } = default!;
 
     }
 }
