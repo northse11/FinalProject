@@ -29,7 +29,7 @@ namespace FinalProject.Data
             modelBuilder.Entity<Hobby>().HasData(
                 new Hobby { HobbyID = 1, HobbyName = "Hobby", HobbyDescription = "Hobby....", HobbyAge = new DateTime(2015, 12, 31), HobbyActive = true, HobbyDifficulty = "Medium" },
                 new Hobby { HobbyID = 2, HobbyName = "Marching Band", HobbyDescription = "Playing the trumpet for the University of Cincinnati Marching Band.", HobbyAge = new DateTime(2022, 8, 01), HobbyActive = true, HobbyDifficulty = "Medium" },
-                new Hobby { HobbyID = 3, HobbyName = "Cooking", HobbyDescription = "Learning new recipes and cooking new foods", HobbyAge = new DateTime(2020, 10, 10), HobbyActive = true, HobbyDifficulty = "Medium" }
+                new Hobby { HobbyID = 3, HobbyName = "Cooking", HobbyDescription = "Learning new recipes and cooking new foods", HobbyAge = new DateTime(2020, 10, 10), HobbyActive = true, HobbyDifficulty = "Medium" },
                 new Hobby { HobbyID = 5, HobbyName = "Playing Piano", HobbyDescription = "Playing classical piano music", HobbyAge = new DateTime(2010, 01, 10), HobbyActive = false, HobbyDifficulty = "Medium" }
 
                 );
