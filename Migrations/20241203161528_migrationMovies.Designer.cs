@@ -4,6 +4,7 @@ using FinalProject.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FinalProject.Migrations
 {
     [DbContext(typeof(FinalProjectContext))]
-    partial class FinalProjectContextModelSnapshot : ModelSnapshot
+    [Migration("20241203161528_migrationMovies")]
+    partial class migrationMovies
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -176,47 +179,11 @@ namespace FinalProject.Migrations
                         new
                         {
                             ID = 1,
-                            Birthdate = new DateTime(2004, 8, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Birthdate = new DateTime(2015, 12, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FirstName = "Steve",
                             LastName = "North",
                             Program = "software",
                             Year = "junior"
-                        },
-                        new
-                        {
-                            ID = 2,
-                            Birthdate = new DateTime(2015, 12, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FirstName = "Jack",
-                            LastName = "Cooper",
-                            Program = "test",
-                            Year = "test"
-                        },
-                        new
-                        {
-                            ID = 3,
-                            Birthdate = new DateTime(2015, 12, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FirstName = "Isan",
-                            LastName = "Kalhan",
-                            Program = "test",
-                            Year = "test"
-                        },
-                        new
-                        {
-                            ID = 4,
-                            Birthdate = new DateTime(2015, 12, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FirstName = "Earl",
-                            LastName = "Schreck",
-                            Program = "test",
-                            Year = "test"
-                        },
-                        new
-                        {
-                            ID = 5,
-                            Birthdate = new DateTime(2015, 12, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FirstName = "Jon",
-                            LastName = "Soriano Sanjuan",
-                            Program = "test",
-                            Year = "test"
                         });
                 });
 

@@ -12,48 +12,49 @@ namespace FinalProject.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class TeamMembersController : ControllerBase
+    public class FavoriteMoviesController : ControllerBase
     {
         private readonly FinalProjectContext _context;
 
-        public TeamMembersController(FinalProjectContext context)
+        public FavoriteMoviesController(FinalProjectContext context)
         {
             _context = context;
         }
 
         [HttpGet]
-        public IActionResult GetMembers()
+        public IActionResult GetMovies()
         {
-            return Ok(_context.TeamMember.ToList());
+            return Ok(_context.FavoriteMovie.ToList());
         }
 
         [HttpGet("{id?}")]
-        public IActionResult GetMember(int? id)
+        public IActionResult GetMovie(int? id)
         {
-            TeamMember member = _context.TeamMember.Find(id);
-            if (id == 0 || member == null)
+            FavoriteMovie movie = _context.FavoriteMovie.Find(id);
+            if (id == 0 || movie == null)
             {
-                var results = _context.TeamMember.Take(5).ToList();
+                var results = _context.FavoriteMovie.Take(5).ToList();
                 return Ok(results);
             }
             else
             {
-                return Ok(member);
+                return Ok(movie);
             }
         }
+
         [HttpPost]
-        public IActionResult PostTeamMember(TeamMember member)
+        public IActionResult PostFavoriteMovie(FavoriteMovie movie)
         {
-            _context.TeamMember.Add(member);
+            _context.FavoriteMovie.Add(movie);
             _context.SaveChanges();
             return Ok();
         }
 
         [HttpDelete("{id}")]
-        public IActionResult DeleteTeamMember(int id)
+        public IActionResult DeleteFavoriteMovie(int id)
         {
-            TeamMember member = _context.TeamMember.Find(id);
-            if (member == null)
+            FavoriteMovie movie = _context.FavoriteMovie.Find(id);
+            if (movie == null)
             {
                 return NotFound();
             }
@@ -61,7 +62,7 @@ namespace FinalProject.Controllers
             {
                 try
                 {
-                    _context.TeamMember.Remove(member);
+                    _context.FavoriteMovie.Remove(movie);
                     _context.SaveChanges();
                 }
                 catch (Exception ex)
@@ -73,11 +74,11 @@ namespace FinalProject.Controllers
         }
 
         [HttpPut]
-        public IActionResult PutTeamMember(TeamMember member)
+        public IActionResult PutFavoriteMovie(FavoriteMovie movie)
         {
             try
             {
-                _context.Entry(member).State = EntityState.Modified;
+                _context.Entry(movie).State = EntityState.Modified;
                 _context.SaveChanges();
                 return Ok();
             }
@@ -86,22 +87,5 @@ namespace FinalProject.Controllers
                 return NotFound();
             }
         }
-
-        [HttpGet("{id}/favoritesongs")]
-        public IActionResult GetMemberFavoriteSongs(int id)
-        {
-            var favoriteSongs = _context.FavoriteSong
-                .Where(fs => fs.TeamMemberID == id)
-                .ToList();
-
-            if (!favoriteSongs.Any())
-            {
-                return NotFound("No favorite songs found for the specified team member.");
-            }
-
-            return Ok(favoriteSongs);
-        }
-
-
     }
 }
