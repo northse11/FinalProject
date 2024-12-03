@@ -26,20 +26,20 @@ namespace FinalProject.Data
                 );
 
             modelBuilder.Entity<Hobby>().HasData(
-                new Hobby { HobbyID = 1, HobbyName = "Hobby", HobbyDescription = "Hobby....", HobbyAge = new DateTime(2015, 12, 31), HobbyActive = true, HobbyDifficulty = "Medium" }
-                );
-                new Hobby { HobbyID = 2, HobbyName = "Marching Band", HobbyDescription = "Playing the trumpet for the University of Cincinnati Marching Band.", HobbyAge = new DateTime(2022, 8, 01), HobbyActive = true, HobbyDifficulty = "Medium" }
+                new Hobby { HobbyID = 1, HobbyName = "Hobby", HobbyDescription = "Hobby....", HobbyAge = new DateTime(2015, 12, 31), HobbyActive = true, HobbyDifficulty = "Medium" },
+                new Hobby { HobbyID = 2, HobbyName = "Marching Band", HobbyDescription = "Playing the trumpet for the University of Cincinnati Marching Band.", HobbyAge = new DateTime(2022, 8, 01), HobbyActive = true, HobbyDifficulty = "Medium" },
+                new Hobby { HobbyID = 3, HobbyName = "Cooking", HobbyDescription = "Learning new recipes and cooking new foods", HobbyAge = new DateTime(2020, 10, 10), HobbyActive = true, HobbyDifficulty = "Medium" }
                 );
 
             modelBuilder.Entity<FavoriteSong>().HasData(
-                new FavoriteSong { FavoriteSongID = 1, TeamMemberID = 1, SongName = "Bohemian Rhapsody", Artist = "Queen" }
-                );
-                new FavoriteSong { FavoriteSongID = 2, TeamMemberID = 2, SongName = "Invisible", Artist = "Duran Duran" }
+                new FavoriteSong { FavoriteSongID = 1, TeamMemberID = 1, SongName = "Bohemian Rhapsody", Artist = "Queen" },
+                new FavoriteSong { FavoriteSongID = 2, TeamMemberID = 2, SongName = "Invisible", Artist = "Duran Duran" },
+                new FavoriteSong { FavoriteSongID = 3, TeamMemberID = 1, SongName = "Lyin' Eyes", Artist = "Eagles" }
                 );
             modelBuilder.Entity<FavoriteMovie>().HasData(
-                new FavoriteMovie { ID = 1, Title = "Inception", Director = "Christopher Nolan", ReleaseDate = new DateTime(2010, 7, 16), Genre = "Sci-Fi", Rating = 8.8 }
-                );
-                new FavoriteMovie { ID = 2, Title = "Star Wars: Episode V - The Empire Strikes Back", Director = "Irvin Kershner", ReleaseDate = new DateTime(1980, 5, 06), Genre = "Sci-Fi", Rating = 8.7 }
+                new FavoriteMovie { ID = 1, Title = "Inception", Director = "Christopher Nolan", ReleaseDate = new DateTime(2010, 7, 16), Genre = "Sci-Fi", Rating = 8.8 },
+                new FavoriteMovie { ID = 2, Title = "Star Wars: Episode V - The Empire Strikes Back", Director = "Irvin Kershner", ReleaseDate = new DateTime(1980, 5, 06), Genre = "Sci-Fi", Rating = 8.7 },
+                new FavoriteMovie { ID = 3, Title = "Signs", Director = "M Night Shyamalan", ReleaseDate = new DateTime(2002, 08, 02), Genre = "Sci-Fi", Rating = 10 }
                 );
         }
 
