@@ -33,12 +33,16 @@ namespace FinalProject.Controllers
         [HttpGet("{id}")]
         public IActionResult GetFavoriteSong(int id)
         {
-            var favoriteSong = _context.FavoriteSong.Include(fs => fs.TeamMember).FirstOrDefault(fs => fs.FavoriteSongID == id);
-            if (favoriteSong == null)
+            var favoriteSong  = _context.FavoriteSong.Find(id);
+            if (id == 0 || favoriteSong == null)
             {
-                return NotFound();
+                var results = _context.FavoriteSong.Take(5).ToList();
+                return Ok(results);
             }
-            return Ok(favoriteSong);
+            else
+            {
+                return Ok(favoriteSong);
+            }
         }
 
         
