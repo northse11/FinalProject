@@ -23,18 +23,21 @@ namespace FinalProject.Data
                 new TeamMember { ID = 2, FirstName = "Jack", LastName = "Cooper", Birthdate = new DateTime(2015, 12, 31), Program = "test", Year = "test" },
                 new TeamMember { ID = 3, FirstName = "Isan", LastName = "Kalhan", Birthdate = new DateTime(2015, 12, 31), Program = "test", Year = "test" },
                 new TeamMember { ID = 4, FirstName = "Earl", LastName = "Schreck", Birthdate = new DateTime(2015, 12, 31), Program = "test", Year = "test" },
-                new TeamMember { ID = 5, FirstName = "Jon", LastName = "Soriano Sanjuan", Birthdate = new DateTime(2015, 12, 31), Program = "test", Year = "test" }
+                new TeamMember { ID = 5, FirstName = "Jon", LastName = "Soriano Sanjuan", Birthdate = new DateTime(2000, 05, 11), Program = "Software", Year = "Junior" }
                 );
 
             modelBuilder.Entity<Hobby>().HasData(
-                new Hobby { HobbyID = 1, HobbyName = "Hobby", HobbyDescription = "Hobby....", HobbyAge = new DateTime(2015, 12, 31), HobbyActive = true, HobbyDifficulty = "Medium" }
+                new Hobby { HobbyID = 5, HobbyName = "Playing Piano", HobbyDescription = "Playing classical piano music", HobbyAge = new DateTime(2010, 01, 10), HobbyActive = false, HobbyDifficulty = "Medium" }
+
                 );
 
             modelBuilder.Entity<FavoriteSong>().HasData(
-                new FavoriteSong { FavoriteSongID = 1, TeamMemberID = 1, SongName = "Bohemian Rhapsody", Artist = "Queen" }
+                new FavoriteSong { FavoriteSongID = 1, TeamMemberID = 1, SongName = "Bohemian Rhapsody", Artist = "Queen" },
+                new FavoriteSong { FavoriteSongID = 5, TeamMemberID = 5, SongName = "Wildfire", Artist = "Black Out The Sun" }
                 );
             modelBuilder.Entity<FavoriteMovie>().HasData(
-                new FavoriteMovie { ID = 1, Title = "Inception", Director = "Christopher Nolan", ReleaseDate = new DateTime(2010, 7, 16), Genre = "Sci-Fi", Rating = 8.8 }
+                new FavoriteMovie { ID = 1, Title = "Inception", Director = "Christopher Nolan", ReleaseDate = new DateTime(2010, 7, 16), Genre = "Sci-Fi", Rating = 8.8 },
+                new FavoriteMovie { ID = 5, Title = "Smile 2", Director = "Parker Finn", ReleaseDate = new DateTime(2024, 10, 24), Genre = "Horror", Rating = 8.5 }
                 );
         }
 
