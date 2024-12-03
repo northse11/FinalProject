@@ -53,6 +53,7 @@ namespace FinalProject.Data
         public DbSet<FinalProject.Models.Hobby> Hobby { get; set; } = default!;
         public DbSet<FavoriteSong> FavoriteSong { get; set; } = default!;
         public DbSet<FavoriteMovie> FavoriteMovie { get; set; } = default!;
+        public DbSet<FinalProject.Models.BreakfastItems> BreakfastItems { get; set; } = default!;
 
     }
 }
